@@ -1,0 +1,121 @@
+body{
+    box-sizing: border-box;
+    margin:0;
+    padding: 0;
+    background-color: rgb(19, 19, 19);
+}
+
+.container-forms{
+    display: flex;
+    background-image: url('https://wallpaperaccess.com/full/42332.png');
+    justify-content: center;
+    background-position: center;
+    background-repeat:repeat-x;
+    /* cover nos dice que nos cubra todo el contenedor */
+   /*  background-size: cover; */
+    background-position: center;
+    background-color: rgb(88, 0, 105);
+    /* mezclar la imagen de fondo con el color de fondo utilizando diferentes modos de mezcla. */
+    background-blend-mode:hard-light;
+    align-items: center;
+    height: 100vh;
+    gap: 0;
+}
+
+.container{
+/* explicame esto */
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(88, 0, 105);
+    height: 100vh;
+    width: 30%;    
+}
+
+.label{
+    display: flex;
+    font-size: 15px;
+    color: #727272;
+    width: 70%;
+}
+.info-text{
+    font-size: 14px;
+    color: #555555;
+    align-items: center;
+    width: min-content;
+    text-wrap: nowrap;
+    height: 30px;
+    display: flex;
+    gap:  5px;
+}
+.here{
+    color: #ae00ff;
+    cursor: pointer;
+    font-size: 15px;
+    margin: 0;
+    width: min-content;
+    text-wrap: nowrap;
+}
+.title{
+    font-family:Arial, Helvetica, sans-serif;
+    font-optical-sizing: auto;
+   font-size: 40px;
+    font-style: normal;
+    
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+
+.container__input{
+    display: flex;
+    flex-direction: column;
+    background-color:white;
+    height: 500px;
+    align-items: center;
+    width: 30%;
+    gap: 2%;
+
+}
+.image-background{
+    width: 500px;
+    height: 500px;
+}
+/* estilo de letra */
+input::placeholder {
+    color: #888;
+    padding-left: 10px;
+ 
+    
+}
+
+/* cuadno se interatua con el input da un color al borde */
+input:focus {
+    border-color: #0e65e7; 
+    outline: none;
+}
+input {
+    outline: none;
+    color: black;
+    border: 1px solid rgb(133, 133, 133);
+    background-color: #f1f1f1;
+    padding-left: 10px;
+    width: 70%;
+    height: 35px;
+    border-radius: 5px;
+}
+/* no supe como colocar el botn en el centro */
+.button-register{
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    height: 35px;
+    width: 130px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    background-color: #b12eee;
+}
+
+
+
+
