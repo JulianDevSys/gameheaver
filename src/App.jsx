@@ -16,10 +16,11 @@ const routes = createBrowserRouter([
     element: <Home />,
     children: [
       { path:"/", element: <Login /> },
-      { path:"/login", element: <Login /> },    
+      
       { path: "/register", element: <Register /> },
     ],
   },
+  
 ]);
 
 function App() {

@@ -1,34 +1,52 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import "./styleRegister.css";
-
+import swal from "sweetalert2"
 export default function Login() {
-  const [password, setPassword] = useState("");
-  const [message, setMessage] = useState("");
-  const [username, setUsername] = useState("");
+  
+  const [message, setMessage] = useState("")
+  const CatchDatas=(e)=>{
+    const {name,value}=e.target
+    SetgetDatasLogin({
+      ...getDataLogin,
+      [name]:value
+    })
+  }
+  
+  const [getDataLogin,SetgetDatasLogin]=useState({
+    correo :"",
+    password:"",
+  })
 
-const handlerLogin = ()=>{
+const handlerLogin = async(e)=>{
+  e.preventDefault()
+  
 
-  if(username.trim() === ''){
-    return setMessage('El username no puede ser vacio')
+  const url= 'http://localhost:4000'
+  const response=await fetch(url,{
+    method:"POST",
+    headers:{
+      'Content-Type': 'application/json', 
+    },
+    body: JSON.stringify(getDataLogin), 
+  })
+  if(response.status==200){
+    swal.fire({
+      title: "Good job!",
+      text: "yo have been signed up correctly",
+      icon: "success"
+    });
+   }
+   else{
+    swal.fire({
+      icon: "error",
+      title: "Oops...",
+      text: "Something went wrong!, dont repeat Email",
+    
+    })
+  }
   }
 
-  if(username.trim().includes(' ')){
-    return setMessage('El username no puede contener espacios')
-  }
-
-  if(username.trim().length > 10){
-    return setMessage('El username es muy largo como mi verga')
-  }
-
-
-
-
-
-
-
-  alert('Manda datos a la base datos')
-}
 
   return (
     <div className="container__input">
@@ -40,11 +58,11 @@ const handlerLogin = ()=>{
 
       <input
         id="username"
-        type="text"
+        type="email"
         className="for_input username"
-        onChange={(e) => {
-            setUsername(e.target.value)
-        }}
+        name="correo"
+        value={getDataLogin.correo}
+        onChange={CatchDatas}
         placeholder="ingrese un nombre de usuario"
       />
 
@@ -56,10 +74,10 @@ const handlerLogin = ()=>{
       <input
         id="password"
         type="password"
+        name="password"
+        value={getDataLogin.password}
         className="for_input password"
-        onChange={(e) => {
-            setPassword(e.target.value)
-        }}
+        onChange={CatchDatas}
         placeholder="contraseña"
       />
       {message}

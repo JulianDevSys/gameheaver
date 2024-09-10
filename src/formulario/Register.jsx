@@ -1,12 +1,80 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import "./styleRegister.css";
-
+import swal from "sweetalert2"
 export default function Register() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  
   const [message, setMessage] = useState("");
-  const [username, setUsername] = useState("");
+  
+
+  const [getDatas,SetgetDatas]=useState({
+    correo :"",
+    password:"",
+    username:""
+
+  })
+
+
+  function GetDatasRegister(event){
+    const {name,value}= event.target
+    SetgetDatas({
+      ...getDatas,
+      [name]:value
+    })
+  }
+    
+      async function RegisterDatas(e){
+        if(!getDatas.correo.includes("@") ){
+         return swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Something went wrong!, dont have @",
+        
+        })
+        }
+        
+        if(getDatas.password.length<=10){
+          return swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Something went wrong!, minimum 10 words",
+          
+          })
+        }
+        e.preventDefault()
+        const url='http://localhost:4000/register'
+         const response= await fetch(url,{
+          method:"POST",
+          headers: {
+            'Content-Type': 'application/json', 
+          },
+          body: JSON.stringify(getDatas), 
+        })
+        
+        response.status==200?console.log("correct"):console.log("dont repeat email")
+        if(response.status==200){
+          swal.fire({
+            title: "Good job!",
+            text: "yo have been signed up correctly",
+            icon: "success"
+          });
+         }
+         else{
+          swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Something went wrong!, dont repeat Email/username",
+          
+          })
+        }
+      }
+        
+       
+         
+       
+      
+
+
 
   return (
     <div className="container__input">
@@ -19,10 +87,11 @@ export default function Register() {
       <input
         id="username"
         type="text"
+        name="username"
+        value={getDatas.username}
         className="for_input username"
-        onChange={(e) => {
-          obtenerUsuario(e);
-        }}
+        onChange={GetDatasRegister
+        }
         placeholder="ingrese un nombre de usuario"
       />
 
@@ -33,8 +102,10 @@ export default function Register() {
       <input
         id="email"
         type="email"
+        name="correo"
+        value={getDatas.correo}
         className="for_input email"
-        onChange={(e) => {}}
+        onChange={ GetDatasRegister}
         placeholder="correo electronico"
       />
 
@@ -45,8 +116,10 @@ export default function Register() {
       <input
         id="password"
         type="password"
+        name="password"
+        value={getDatas.password}
         className="for_input password"
-        onChange={(e) => {}}
+        onChange={GetDatasRegister}
         placeholder="contraseña"
       />
 
@@ -54,9 +127,10 @@ export default function Register() {
          ya tienes una cuenta ? inicia <NavLink className="here" to={'/'}>aqui</NavLink>
       </div>
 
-      <div className="button-register" onClick={(e) => {}}>
+      <div className="button-register" onClick={RegisterDatas}>
         Registrar
       </div>
     </div>
   );
 }
+
