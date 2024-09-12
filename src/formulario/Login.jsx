@@ -1,10 +1,11 @@
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { Navigate, NavLink,useNavigate } from "react-router-dom";
 import "./styleRegister.css";
 import swal from "sweetalert2"
 export default function Login() {
   
   const [message, setMessage] = useState("")
+  const navigate=useNavigate()
   const CatchDatas=(e)=>{
     const {name,value}=e.target
     SetgetDatasLogin({
@@ -35,6 +36,8 @@ const handlerLogin = async(e)=>{
       title: "Good job!",
       text: "yo have been signed up correctly",
       icon: "success"
+
+     
     });
    }
    else{
@@ -45,6 +48,7 @@ const handlerLogin = async(e)=>{
     
     })
   }
+  navigate("/inicioSesion")
   }
 
 
