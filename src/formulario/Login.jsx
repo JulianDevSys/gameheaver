@@ -5,7 +5,12 @@ import swal from "sweetalert2"
 export default function Login() {
   
   const [message, setMessage] = useState("")
+  const [getDataLogin,SetgetDatasLogin]=useState({
+    correo :"",
+    password:"",
+  })
   const navigate=useNavigate()
+
   const CatchDatas=(e)=>{
     const {name,value}=e.target
     SetgetDatasLogin({
@@ -14,31 +19,33 @@ export default function Login() {
     })
   }
   
-  const [getDataLogin,SetgetDatasLogin]=useState({
-    correo :"",
-    password:"",
-  })
+
 
 const handlerLogin = async(e)=>{
+  //decirle que no haga un comportamiento por defecto del navegador
   e.preventDefault()
   
 
   const url= 'http://localhost:4000'
   const response=await fetch(url,{
     method:"POST",
+    // especifica que contenido va a transportar
     headers:{
       'Content-Type': 'application/json', 
     },
+    //coge el objeto y lo tranforma a json en string
+    // stringify( tranforma de json a string)
     body: JSON.stringify(getDataLogin), 
   })
-  if(response.status==200){
+  if(response.ok){
     swal.fire({
       title: "Good job!",
       text: "yo have been signed up correctly",
       icon: "success"
 
-     
-    });
+    
+    })
+    navigate("/inicioSesion")
    }
    else{
     swal.fire({
@@ -48,7 +55,7 @@ const handlerLogin = async(e)=>{
     
     })
   }
-  navigate("/inicioSesion")
+  
   }
 
 
