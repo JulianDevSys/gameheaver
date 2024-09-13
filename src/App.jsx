@@ -2,6 +2,7 @@ import Home from "./pages/Home";
 import Register from "./formulario/Register";
 import Login from "./formulario/login";
 import InicioSesion from "./pages/InicioSesion";
+import Triqui from "./juegos/Triqui";
 import {
   createBrowserRouter,
   RouterProvider,
@@ -19,11 +20,14 @@ const routes = createBrowserRouter([
       { path:"/", element: <Login /> },
       
       { path: "/register", element: <Register /> },
-      { path: "/inicioSesion", element: <InicioSesion /> },
-    
-    
+      
     ],
+   
   },
+   { path: "/inicioSesion", element: <InicioSesion /> ,
+   },
+   { path:"triqui", element: <Triqui /> },
+   
   
 ]);
 

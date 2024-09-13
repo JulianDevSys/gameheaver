@@ -45,7 +45,7 @@ const handlerLogin = async(e)=>{
 
     
     })
-    navigate("/inicioSesion")
+    navigate("inicioSesion")
    }
    else{
     swal.fire({
