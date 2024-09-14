@@ -19,7 +19,7 @@ export default function Triqui(){
     return(
         <div className="first_container">
 
-        <div className="title">
+        <div className="title1">
         <p>{message}</p>
         </div>
 

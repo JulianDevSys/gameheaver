@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import "./styleRegister.css";
-import swal from "sweetalert2"
+import Swal from "sweetalert2"
 export default function Register() {
   
   const [message, setMessage] = useState("");
@@ -22,10 +22,24 @@ export default function Register() {
       [name]:value
     })
   }
+
+  // validaciones agregadas
+    const validatePassword = (password) => {
+    const minLength = 8;
+    const hasUpperCase = /[A-Z]/.test(password);
+    const hasLowerCase = /[a-z]/.test(password);
+    const hasNumber = /\d/.test(password);
+    const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/.test(password);
+
+    return password.length >= minLength && hasUpperCase && hasLowerCase && hasNumber && hasSpecialChar;
+  };
+
     
       async function RegisterDatas(e){
+        e.preventDefault()
+
         if(!getDatas.correo.includes("@") ){
-         return swal.fire({
+         return Swal.fire({
           icon: "error",
           title: "Oops...",
           text: "Something went wrong!, dont have @",
@@ -33,15 +47,14 @@ export default function Register() {
         })
         }
         
-        if(getDatas.password.length<=10){
-          return swal.fire({
+        if (!validatePassword(getDatas.password)) {
+          return Swal.fire({
             icon: "error",
             title: "Oops...",
-            text: "Something went wrong!, minimum 10 words",
-          
-          })
+            text: "La contraseña debe tener al menos 8 caracteres, una letra mayúscula, una letra minúscula, un número y un carácter especial."
+          });
         }
-        e.preventDefault()
+        
         const url='http://localhost:4000/register'
          const response= await fetch(url,{
           method:"POST",
@@ -53,14 +66,14 @@ export default function Register() {
         
         response.status==200?console.log("correct"):console.log("dont repeat email")
         if(response.status==200){
-          swal.fire({
+          Swal.fire({
             title: "Good job!",
             text: "yo have been signed up correctly",
             icon: "success"
           });
          }
          else{
-          swal.fire({
+          Swal.fire({
             icon: "error",
             title: "Oops...",
             text: "Something went wrong!, dont repeat Email/username",
