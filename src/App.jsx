@@ -3,6 +3,7 @@ import Register from "./formulario/Register";
 import Login from "./formulario/login";
 import InicioSesion from "./pages/InicioSesion";
 import Triqui from "./juegos/Triqui";
+import JuntarParejas from "./juegos/JuntarParejas";
 import {
   createBrowserRouter,
   RouterProvider,
@@ -27,6 +28,7 @@ const routes = createBrowserRouter([
    { path: "/inicioSesion", element: <InicioSesion /> ,
    },
    { path:"triqui", element: <Triqui /> },
+   { path:"juntarParejas", element: <JuntarParejas /> },
    
   
 ]);
