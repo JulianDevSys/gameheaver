@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Navigate, NavLink,useNavigate } from "react-router-dom";
 import "./styleRegister.css";
-import swal from "sweetalert2"
+import Swal from "sweetalert2";
 export default function Login() {
   
   const [message, setMessage] = useState("")
@@ -18,8 +18,6 @@ export default function Login() {
       [name]:value
     })
   }
-  
-
 
 const handlerLogin = async(e)=>{
   //decirle que no haga un comportamiento por defecto del navegador
@@ -38,7 +36,7 @@ const handlerLogin = async(e)=>{
     body: JSON.stringify(getDataLogin), 
   })
   if(response.ok){
-    swal.fire({
+    Swal.fire({
       title: "Good job!",
       text: "yo have been signed up correctly",
       icon: "success"
@@ -48,7 +46,7 @@ const handlerLogin = async(e)=>{
     navigate("inicioSesion")
    }
    else{
-    swal.fire({
+    Swal.fire({
       icon: "error",
       title: "Oops...",
       text: "Something went wrong!, dont repeat Email",
