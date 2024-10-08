@@ -1,56 +1,111 @@
-.first_container{
-    display: flex;
-    flex-direction: column;
-    background-color: red;
-    height: 100vh;
-
+.first_container {
+  display: flex;
+  flex-direction: column;
+  background-color: red;
+  height: 100vh;
 }
 
-.header_couples{
-    display: flex;
-    flex-direction: row;
-    background-color: aqua;
-    justify-content: space-around;
-
+.header_couples {
+  display: flex;
+  flex-direction: row;
+  background-color: aqua;
+  justify-content: space-around;
 }
 
-.find_pairs{
-    height: 100vh;
-    width: 100vh;
-    align-content: center;
-    margin: auto;
-    
-}
-
-.btns{
-display: flex;
-flex-direction: row;
-justify-content: center;
-gap: 15px;
-padding: 10px;
-
-} 
-
-
-.botones{
-    height: 130px;
-    width: 130px;
-    border-radius: 10px;
-    background-color: blue;
-    cursor: pointer;
-
+.btn_reiniciar {
+  display: flex;
+  color: white;
+  font-size: 20px;
+  background-color: tomato;
+  width: 180px;
+  height: 70px;
+  border-radius: 5px;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
 }
 
 
-.btn_reiniciar{
-    display: flex;
-    color: white;
-    font-size: 20px;
-    background-color: tomato;
-    width:180px;
-    height: 70px;
-    border-radius: 5px;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
+.find_pairs {
+  display: flex;
+  flex-wrap: wrap;
+  width: 700px;
+  height: 600px;
+  margin: 0 auto;
+  justify-content: space-around;
+  color: white;
+  margin: auto;
 }
+
+
+
+.cartas {
+  width: 135px;
+  height: 135px;
+  background-color: yellow;
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.4s; /* Tiempo de la transición de rotación */
+  transform-style: preserve-3d; /* Para mantener la perspectiva 3D */
+}
+
+.rotada {
+  transform: rotateY(180deg); /* Rota la carta 180 grados en el eje Y */
+}
+
+.cartas img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+
+}
+
+
+
+.back_card {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: rotateY(180deg); /* Parte trasera de la carta rotada */
+}
+
+
+
+
+/* .cartas {
+
+  width: 135px;
+  height: 135px;
+  background-color: yellow;
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+
+/* .cartas img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px; 
+}
+ */
+.visible img {
+  display: none;
+}
+
+/* .back_card {
+  width: 100%;
+  height: 100%;
+  background-color: gray; 
+  border-radius: 10px;
+} */
+
