@@ -34,93 +34,93 @@ const level2 = [
   "https://i.pinimg.com/236x/72/01/bf/7201bfa0fbc68f5c27f321fc096756f9.jpg"
 ];
 
+
+
 export default function JuntarParejas() {
   const [cartas, setCartas] = useState([]);
-  const [visible,setVisible] = useState([])
-  const [selected,setSelected] =useState([])
-  const [intentos,setIntentos] = useState(0)
-  const isSelected = useRef(false)
+  const [visible, setVisible] = useState([]);
+  const [selected, setSelected] = useState([]);
+  const [intentos, setIntentos] = useState(0);
+  const [nivel, setNivel] = useState("clasico"); // Estado para el nivel seleccionado
+  const isSelected = useRef(false);
 
   useEffect(() => {
-    reiniciar()
-  }, []);
+    reiniciar();
+  }, [nivel]); // Reinicia el juego cuando el nivel cambia
 
-
-  const reiniciar = ()=>{
-    setVisible([])
-    setCartas(shuffle([...level1,...level1]))
-    setSelected([])
-    setIntentos(0)
-  }
-
-  const selectCart =(i)=>{
-    if(isSelected.current){
-      return
+  const reiniciar = () => {
+    setVisible([]);
+    // Usar el nivel seleccionado para definir el arreglo de cartas
+    if (nivel === "clasico") {
+      setCartas(shuffle([...level1, ...level1]));
+    } else {
+      setCartas(shuffle([...level2, ...level2]));
     }
-    const x = [...selected,i]
-    setSelected(x)
-    if(x.length==2){
-      isSelected.current = true
-      if(x[0]!=x[1] && cartas[x[0]] === cartas[x[1]]){      
-        setVisible([...visible,x[0],x[1]])
-        isSelected.current = false
+    setSelected([]);
+    setIntentos(0);
+  };
+
+  const selectCart = (i) => {
+    if (isSelected.current) {
+      return;
+    }
+    const x = [...selected, i];
+    setSelected(x);
+    if (x.length == 2) {
+      isSelected.current = true;
+      if (x[0] != x[1] && cartas[x[0]] === cartas[x[1]]) {
+        setVisible([...visible, x[0], x[1]]);
+        isSelected.current = false;
       }
-        setIntentos(intentos+1)  
-        setTimeout(()=>{
-          setSelected([])
-          isSelected.current = false
-        },1000)
-       
-    } 
-  }
+      setIntentos(intentos + 1);
+      setTimeout(() => {
+        setSelected([]);
+        isSelected.current = false;
+      }, 1000);
+    }
+  };
 
   return (
-    <div className="first_container">
-      {/* Header */}
+    <div className={`first_container ${nivel === "clasico" ? "nivel-clasico" : "nivel-dificil"}`}>
       <div className="header_couples">
         <h2 className="title_couples play">ENCUENTRA LA PAREJA</h2>
         <h2 className="count play">Número de intentos: {intentos}</h2>
-        <div className="btn_reiniciar" onClick={reiniciar} >
-          Reiniciar el 
+        <div className="btn_reiniciar" onClick={reiniciar}>
+          Reiniciar Juego
         </div>
       </div>
-      <div className="find_pairs">
-{/*           {
-            cartas.map((c,i)=>{
 
-                if(selected.includes(i) || visible.includes(i)){
-                  return <div className="cartas" key={i}  onClick={(e)=>{
-                    selectCart(i)
-                  }}><img src={c} alt="" /></div>
-                }
+      <div className="todo">
+        <div className="modo_Juego">
+          <div
+            className="clasico"
+            onClick={() => setNivel("clasico")} // Cambiar al nivel clásico
+          >
+            Clásico
+          </div>
+          <div
+            className="dificil"
+            onClick={() => setNivel("dificil")} // Cambiar al nivel difícil
+          >
+            Difícil
+          </div>
+        </div>
 
-              return <div className="cartas visible" key={i}  onClick={(e)=>{
-                selectCart(i)
-              }}><img src={c} alt="" /></div>
-            })
-          } */}
-
-{
-  cartas.map((c, i) => {
-    const isFlipped = selected.includes(i) || visible.includes(i); // Si la carta está seleccionada o visible
-
-    return (
-      <div
-        className={`cartas ${isFlipped ? "rotada" : ""}`} // Aplica la clase rotada si la carta debe mostrarse
-        key={i}
-        onClick={() => selectCart(i)} // Al hacer clic, selecciona la carta
-      >
-        {/* Parte trasera */}
-        <div className="back_card"></div>
-
-        {/* Parte frontal (imagen) */}
-        {isFlipped && <img src={c} alt="" />} {/* Muestra la imagen solo si la carta está volteada */}
-      </div>
-    );
-  })
-}
-
-
+        <div className="find_pairs">
+          {cartas.map((c, i) => {
+            const isFlipped = selected.includes(i) || visible.includes(i);
+            return (
+              <div
+                className={`cartas ${isFlipped ? "rotada" : ""}`}
+                key={i}
+                onClick={() => selectCart(i)}
+              >
+                <div className="back_card"></div>
+                {isFlipped && <img src={c} alt="" />}
+              </div>
+            );
+          })}
+        </div>
       </div>
     </div>
   );

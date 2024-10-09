@@ -8,7 +8,7 @@
 .header_couples {
   display: flex;
   flex-direction: row;
-  background-color: aqua;
+  background-color: rgb(71, 84, 201);
   justify-content: space-around;
 }
 
@@ -16,7 +16,7 @@
   display: flex;
   color: white;
   font-size: 20px;
-  background-color: tomato;
+  background-color: rgb(157, 71, 255);
   width: 180px;
   height: 70px;
   border-radius: 5px;
@@ -26,12 +26,35 @@
 }
 
 
+
+.modo_Juego{
+  display: flex;
+  flex-direction: row;
+  gap: 45px;
+  justify-content: center;
+  font-size: 30px;
+  color: aliceblue;
+  cursor: pointer;
+  padding: 20px;
+}
+
+.clasico{
+  background-color: rgb(169, 100, 248);
+  width: 100px;
+  padding: 10px;
+}
+.dificil{
+  background-color: rgb(169, 100, 248);
+  width: 80px;
+  padding: 10px;
+}
+
+
 .find_pairs {
   display: flex;
   flex-wrap: wrap;
   width: 700px;
   height: 600px;
-  margin: 0 auto;
   justify-content: space-around;
   color: white;
   margin: auto;
@@ -42,7 +65,7 @@
 .cartas {
   width: 135px;
   height: 135px;
-  background-color: yellow;
+  background-color: rgb(51, 39, 83);
   position: relative;
   cursor: pointer;
   display: flex;
@@ -79,33 +102,28 @@
 
 
 
-/* .cartas {
-
-  width: 135px;
-  height: 135px;
-  background-color: yellow;
+/* Puedes añadir otros estilos diferentes para el nivel difícil */
+.nivel-dificil .cartas {
+  width: 130px;
+  height: 125px;
+  background-color: rgb(51, 39, 83);
   position: relative;
   cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
-} */
-
-/* .cartas img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 10px; 
-}
- */
-.visible img {
-  display: none;
+  transition: transform 0.4s; /* Tiempo de la transición de rotación */
+  transform-style: preserve-3d; /* Para mantener la perspectiva 3D */
 }
 
-/* .back_card {
-  width: 100%;
-  height: 100%;
-  background-color: gray; 
-  border-radius: 10px;
-} */
 
+.nivel-dificil .find_pairs {
+  display: flex;
+  flex-wrap: wrap;
+  width: 900px;
+  height: 500px;
+  justify-content: space-around;
+  color: white;
+  margin: auto;
+  gap: 10px;
+}

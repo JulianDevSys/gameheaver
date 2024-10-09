@@ -20,7 +20,9 @@ export default function InicioSesion(){
                 }}/>
             </div>
             <div className="juegos jutnar_parejas ">
-                <img src="https://www.cokitos.com/wp-content/uploads/2022/06/memory-master-frutas.jpg" alt="triqui" />
+                <img src="https://www.cokitos.com/wp-content/uploads/2022/06/memory-master-frutas.jpg" alt="triqui" onClick={()=>{
+                    navigate("/juntarparejas")
+                }}/>
             </div>
             <div className="juegos ahorcado">
                 <img src="https://th.bing.com/th/id/OIG2.Ata0aei4iZ25c.b.07Nn?pid=ImgGn" alt="triqui" />
