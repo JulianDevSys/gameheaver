@@ -19,8 +19,7 @@ const lst2 = [
     {username:"david",fullname:'profe lindo',edad: 17, estado: "soltero"}
 ]
 
-
-/* const l =lst2.map((e)=>{ 
+const l =lst2.map((e)=>{ 
     const valorObjeto= Object.values(e)
     const keyObjeto= Object.keys(e)
     let output = ''
@@ -30,7 +29,7 @@ const lst2 = [
     return output
 })
 
-console.log(l); */
+console.log(l); 
 
 
 
@@ -47,21 +46,63 @@ const putas= listaPutas.map((e)=>{
     return  { nombre: e, puntaje: Math.random()*5  } 
     }
 )
-console.log(putas)
+//console.log(putas)
 
-const [cartas, setCartas]= useState([])
+/* 
+const numeros= [2,5,8,10]
 
-const level1 = [
-    "https://img.freepik.com/foto-gratis/retrato-abstracto-ojo-elegancia-mujeres-jovenes-generado-ai_188544-9712.jpg",
-    "https://www.educaciontrespuntocero.com/wp-content/uploads/2020/04/mejores-bancos-de-imagenes-gratis.jpg", 
-    "https://i.blogs.es/0ca9a6/aa/1366_2000.jpeg",
-    "https://media.es.wired.com/photos/650b2a2e72d73ca3bd5ef0cc/16:9/w_2560%2Cc_limit/Business-OpenAI-Dall-E-3-heart.jpg",
-    "https://i.pinimg.com/1200x/50/07/ed/5007edd4af49dc476e6dc43b5863aac5.jpg",
-    "https://imgv3.fotor.com/images/share/fotor-ai-generate-a-lifelike-dragon.jpg",
-    "https://img.freepik.com/foto-gratis/pico-montana-nevada-majestuosidad-galaxia-estrellada-ia-generativa_188544-9650.jpg", 
-    "https://png.pngtree.com/background/20230524/original/pngtree-sad-pictures-for-desktop-hd-backgrounds-picture-image_2705986.jpg",
-    "https://png.pngtree.com/thumb_back/fh260/background/20230611/pngtree-wolf-animals-images-wallpaper-for-pc-384x480-image_2916211.jpg",
-    "https://e.rpp-noticias.io/xlarge/2024/08/14/251925_1626775.webp"
-  ];
+    const cuadrado= numeros.map((e)=>{
+     return e*e
+})
+
+console.log(cuadrado) */
 
 
+
+// convertir a mayusculas
+
+/* const palabras = ['javascript', 'react', 'node', 'css'];
+const mayuscula= palabras.map((p)=>{
+    return p.toUpperCase()
+})
+console.log(mayuscula) */
+
+
+//Ejercicio 3: Extraer nombres de objetos
+const personas = [
+    { nombre: 'Ana', edad: 28 },
+    { nombre: 'Pedro', edad: 35 },
+    { nombre: 'Juan', edad: 42 }
+    ];
+// forma de hacerlo 
+/* const NomObject= personas.map((n)=>{
+    const valoresObjetos= Object.values(n)
+    return valoresObjetos[0]
+})*/
+
+const nombresObjeto= personas.map((n)=>{
+        let nombres= n.nombre
+    return nombres
+
+})
+console.log(nombresObjeto)
+
+
+//Ejercicio 4: Agregar propiedades a objetos
+
+const productos = [
+    { id: 1, nombre: 'Camiseta', precio: 20 },
+    { id: 2, nombre: 'Pantalón', precio: 40 },
+    { id: 3, nombre: 'Zapatos', precio: 60 }
+    ];
+
+const agregarPropiedad= productos.map((a)=>{
+    const valoresObjetos= Object.values(a)
+    const keysObjetos= Object.keys(a)
+    let numero= Math.random()*10
+    return{
+        ...a,
+        enStock:numero
+    }
+})
+console.log(agregarPropiedad)

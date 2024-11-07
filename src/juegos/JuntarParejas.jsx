@@ -1,14 +1,14 @@
 import { useState, useEffect,useRef } from "react";
 import shuffle from "lodash.shuffle"; // libreria para hacerlo de forma aleatoria
-import "./StyleJuntarParejas.css";
+import "./StyleJuntarParejas.css"; 
 
 const level1 = [
   "https://img.freepik.com/foto-gratis/retrato-abstracto-ojo-elegancia-mujeres-jovenes-generado-ai_188544-9712.jpg",
-  "https://www.educaciontrespuntocero.com/wp-content/uploads/2020/04/mejores-bancos-de-imagenes-gratis.jpg", 
+  "https://cdn.cnn.com/cnnnext/dam/assets/211117211009-pba-ranking-super-169.jpg", 
   "https://i.blogs.es/0ca9a6/aa/1366_2000.jpeg",
   "https://media.es.wired.com/photos/650b2a2e72d73ca3bd5ef0cc/16:9/w_2560%2Cc_limit/Business-OpenAI-Dall-E-3-heart.jpg",
   "https://i.pinimg.com/1200x/50/07/ed/5007edd4af49dc476e6dc43b5863aac5.jpg",
-  "https://imgv3.fotor.com/images/share/fotor-ai-generate-a-lifelike-dragon.jpg",
+  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRaPkU7JLyOgzRsnJfouHUetbFjUhEswC6AMQ&s",
   "https://img.freepik.com/foto-gratis/pico-montana-nevada-majestuosidad-galaxia-estrellada-ia-generativa_188544-9650.jpg", 
   "https://png.pngtree.com/background/20230524/original/pngtree-sad-pictures-for-desktop-hd-backgrounds-picture-image_2705986.jpg",
   "https://png.pngtree.com/thumb_back/fh260/background/20230611/pngtree-wolf-animals-images-wallpaper-for-pc-384x480-image_2916211.jpg",
