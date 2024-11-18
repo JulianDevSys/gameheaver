@@ -28,7 +28,7 @@ const routes = createBrowserRouter([
    { path: "/inicioSesion", element: <InicioSesion /> ,
    },
    { path:"triqui", element: <Triqui /> },
-   { path:"juntarParejas", element: <JuntarParejas /> },
+  { path:"juntarParejas", element: <JuntarParejas /> },
    
   
 ]);

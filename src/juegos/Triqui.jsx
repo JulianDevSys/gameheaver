@@ -3,7 +3,8 @@ import db from './db.json'
 import { useState,useEffect } from "react";
 
 export default function Triqui(){
-    let [message, setMessage] = useState('');
+  let [message, setMessage] = useState('');
+  const [response, setResponse] = useState(null);
 
     useEffect(()=>{
         
@@ -21,7 +22,20 @@ export default function Triqui(){
 
         <div className="title1">
         <p>{message}</p>
+
+
+        <h1>Triqui </h1>
+     
+
         </div>
+
+
+
+
+/////////////////////////////////////////////////////7777777
+
+
+
 
         </div>
     )
