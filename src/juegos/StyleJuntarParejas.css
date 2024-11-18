@@ -8,15 +8,18 @@
 .header_couples {
   display: flex;
   flex-direction: row;
-  background-color: rgb(71, 84, 201);
+  background-color: rgb(128, 39, 180);
   justify-content: space-around;
+  box-shadow: 0 0 10px 5px rgba(135, 60, 196, 0.8); 
+  font-size: 18px;
 }
 
 .btn_reiniciar {
   display: flex;
   color: white;
-  font-size: 20px;
+  font-size: 25px;
   background-color: rgb(157, 71, 255);
+  box-shadow: 0 0 10px 5px rgb(120, 2, 218); 
   width: 180px;
   height: 70px;
   border-radius: 5px;
@@ -53,18 +56,19 @@
 .find_pairs {
   display: flex;
   flex-wrap: wrap;
-  width: 700px;
-  height: 600px;
+  width: 750px;
+  height: 650px;
   justify-content: space-around;
   color: white;
   margin: auto;
+  gap: 5px;
 }
 
 
 
 .cartas {
   width: 135px;
-  height: 135px;
+  height: 145px;
   background-color: rgb(51, 39, 83);
   position: relative;
   cursor: pointer;
@@ -73,6 +77,10 @@
   align-items: center;
   transition: transform 0.4s; /* Tiempo de la transición de rotación */
   transform-style: preserve-3d; /* Para mantener la perspectiva 3D */
+  border: 2px solid #214994; 
+  background-color: #000; 
+  box-shadow: 0 0 10px 5px rgba(135, 60, 196, 0.8); 
+
 }
 
 .rotada {
@@ -96,6 +104,7 @@
   position: absolute;
   top: 0;
   left: 0;
+
   transform: rotateY(180deg); /* Parte trasera de la carta rotada */
 }
 
@@ -114,6 +123,9 @@
   align-items: center;
   transition: transform 0.4s; /* Tiempo de la transición de rotación */
   transform-style: preserve-3d; /* Para mantener la perspectiva 3D */
+  border: 2px solid #214994; 
+  background-color: #000; 
+  box-shadow: 0 0 10px 5px rgba(135, 60, 196, 0.8); 
 }
 
 
