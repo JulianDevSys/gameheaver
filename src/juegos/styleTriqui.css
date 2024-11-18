@@ -1,0 +1,22 @@
+.first_container{
+    background-image: url("https://c4.wallpaperflare.com/wallpaper/430/584/907/game-playstation-ps4-sony-wallpaper-thumb.jpg");
+    height: 100vh;
+}
+.title1{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: rgb(182, 32, 32);
+    font-size: 30px;
+}
+
+/* App.css */
+/* button {
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+    margin: 5px;
+  }
+   */

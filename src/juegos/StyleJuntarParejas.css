@@ -1,0 +1,141 @@
+.first_container {
+  display: flex;
+  flex-direction: column;
+  background-color: red;
+  height: 100vh;
+}
+
+.header_couples {
+  display: flex;
+  flex-direction: row;
+  background-color: rgb(128, 39, 180);
+  justify-content: space-around;
+  box-shadow: 0 0 10px 5px rgba(135, 60, 196, 0.8); 
+  font-size: 18px;
+}
+
+.btn_reiniciar {
+  display: flex;
+  color: white;
+  font-size: 25px;
+  background-color: rgb(157, 71, 255);
+  box-shadow: 0 0 10px 5px rgb(120, 2, 218); 
+  width: 180px;
+  height: 70px;
+  border-radius: 5px;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+
+
+.modo_Juego{
+  display: flex;
+  flex-direction: row;
+  gap: 45px;
+  justify-content: center;
+  font-size: 30px;
+  color: aliceblue;
+  cursor: pointer;
+  padding: 20px;
+}
+
+.clasico{
+  background-color: rgb(169, 100, 248);
+  width: 100px;
+  padding: 10px;
+}
+.dificil{
+  background-color: rgb(169, 100, 248);
+  width: 80px;
+  padding: 10px;
+}
+
+
+.find_pairs {
+  display: flex;
+  flex-wrap: wrap;
+  width: 750px;
+  height: 650px;
+  justify-content: space-around;
+  color: white;
+  margin: auto;
+  gap: 5px;
+}
+
+
+
+.cartas {
+  width: 135px;
+  height: 145px;
+  background-color: rgb(51, 39, 83);
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.4s; /* Tiempo de la transición de rotación */
+  transform-style: preserve-3d; /* Para mantener la perspectiva 3D */
+  border: 2px solid #214994; 
+  background-color: #000; 
+  box-shadow: 0 0 10px 5px rgba(135, 60, 196, 0.8); 
+
+}
+
+.rotada {
+  transform: rotateY(180deg); /* Rota la carta 180 grados en el eje Y */
+}
+
+.cartas img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+
+}
+
+
+
+.back_card {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  transform: rotateY(180deg); /* Parte trasera de la carta rotada */
+}
+
+
+
+
+/* Puedes añadir otros estilos diferentes para el nivel difícil */
+.nivel-dificil .cartas {
+  width: 130px;
+  height: 125px;
+  background-color: rgb(51, 39, 83);
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.4s; /* Tiempo de la transición de rotación */
+  transform-style: preserve-3d; /* Para mantener la perspectiva 3D */
+  border: 2px solid #214994; 
+  background-color: #000; 
+  box-shadow: 0 0 10px 5px rgba(135, 60, 196, 0.8); 
+}
+
+
+.nivel-dificil .find_pairs {
+  display: flex;
+  flex-wrap: wrap;
+  width: 900px;
+  height: 500px;
+  justify-content: space-around;
+  color: white;
+  margin: auto;
+  gap: 10px;
+}

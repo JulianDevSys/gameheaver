@@ -1,0 +1,43 @@
+
+.first-container{
+    display:flex;
+    flex-direction: column;
+    color: rgb(176, 14, 240);
+    background-image: url("https://image.slidesdocs.com/responsive-images/background/laser-focused-futuristic-illustrating-video-gaming-and-entertainment-powerpoint-background_68111084ce__960_540.jpg");
+    justify-content: center;
+    align-items: center;
+    height: 40vh;
+    font-size: 100px;
+
+}
+.video_games{
+    display: flex;
+    flex-direction: row;
+    background-image: url("https://media.istockphoto.com/id/1376339349/es/vector/ilustraci%C3%B3n-vectorial-neon-future-game-pad-fondo.jpg?s=612x612&w=0&k=20&c=wAxkHbDvoeT1VEvJAw1MHl9aTdioyWeI8OEB46B0cRk=");
+    height: 60vh;
+    justify-content: space-between;
+}
+
+.juegos{
+    display: flex;
+    flex-direction: row;
+    transition: transform 0.3s ease; 
+    padding: 20px;
+
+    cursor: pointer;
+    height: 350px;
+
+}
+.juegos img:hover {
+    transform: scale(1.2); /* Aumenta el tamaño de la imagen a 120% */
+}
+
+.ahorcado img{
+    border-radius: 30px;
+}
+.triqui img{
+    border-radius: 30px;
+}
+.jutnar_parejas img{
+    border-radius: 30px;
+}
